@@ -75,6 +75,42 @@
             <div class="card"><h3>🌳 Élagage</h3><p>Interventions délicates, abattage, dessouchage et soins arboricoles toutes hauteurs.</p></div>
         </div>
     </section>
+    <section id="bloc-saison" style="padding: 60px 8%; margin: 40px 5%; border-radius: 20px; transition: 0.5s; box-shadow: 0 15px 40px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px; color: white;">
+    <div id="saison-icon" style="font-size: 5rem; color: #B5D51E; flex-shrink: 0;">
+        <i class="fas fa-seedling"></i>
+    </div>
+    <div style="flex: 1; min-width: 300px; text-align: left;">
+        <h3 id="saison-titre" style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; color: #B5D51E; font-size: 1.8rem; font-weight: 800;">
+            Le Conseil de Printemps
+        </h3>
+        <p id="saison-texte" style="font-size: 1.2rem; line-height: 1.6; font-weight: 300;">
+            Chargement de l'expertise MAJARDIN...
+        </p>
+        <a href="contact.html" style="display: inline-block; margin-top: 25px; color: #B5D51E; text-decoration: none; font-weight: 900; border-bottom: 2px solid #B5D51E; padding-bottom: 5px; text-transform: uppercase; font-size: 0.9rem;">
+            Demander mon devis de saison →
+        </a>
+    </div>
+</section>
+
+<section style="background: #fff; padding: 60px 10%; border-top: 1px solid #eee; margin-top: 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
+        <div>
+            <i class="fas fa-euro-sign" style="font-size: 2.5rem; color: #B5D51E; margin-bottom: 15px;"></i>
+            <h4 style="text-transform: uppercase; margin-bottom: 10px; font-weight: 800; font-size: 1rem;">Crédit d'impôt 50%</h4>
+            <p style="font-size: 0.9rem; color: #666;">Économisez 50% sur vos frais d'entretien annuel (Service à la personne).</p>
+        </div>
+        <div>
+            <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: #B5D51E; margin-bottom: 15px;"></i>
+            <h4 style="text-transform: uppercase; margin-bottom: 10px; font-weight: 800; font-size: 1rem;">Travail Garanti</h4>
+            <p style="font-size: 0.9rem; color: #666;">Engagement sur la qualité des matériaux et la pérennité de nos créations.</p>
+        </div>
+        <div>
+            <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: #B5D51E; margin-bottom: 15px;"></i>
+            <h4 style="text-transform: uppercase; margin-bottom: 10px; font-weight: 800; font-size: 1rem;">Proximité Pévèle</h4>
+            <p style="font-size: 0.9rem; color: #666;">Une équipe locale pour une intervention réactive sous 48h dans votre secteur.</p>
+        </div>
+    </div>
+</section>
 
     <footer style="background-color: #1B4332 !important; color: #FFFFFF !important; padding: 60px 5% 40px !important; text-align: center !important; margin-top: 80px !important; border-top: 5px solid #B5D51E !important; width: 100% !important; display: block !important; clear: both !important; position: relative !important; z-index: 1000 !important; left: 0 !important; right: 0 !important;">
     
@@ -115,5 +151,49 @@
     </footer>
 
     <script>function toggleMenu() { document.getElementById('mainNav').classList.toggle('active'); }</script>
+    <script>
+    function mettreAJourSaison() {
+        const maintenant = new Date();
+        const mois = maintenant.getMonth(); // 0 = Janvier, 11 = Décembre
+        const bloc = document.getElementById('bloc-saison');
+        const titre = document.getElementById('saison-titre');
+        const texte = document.getElementById('saison-texte');
+        const icone = document.getElementById('saison-icon');
+
+        if (!bloc || !titre || !texte || !icone) return;
+
+        // PRINTEMPS (Mars, Avril, Mai)
+        if (mois >= 2 && mois <= 4) {
+            bloc.style.backgroundColor = "#1B4332"; // Vert Foncé Majardin
+            titre.innerText = "L'Expertise du Printemps";
+            icone.innerHTML = '<i class="fas fa-seedling"></i>';
+            texte.innerHTML = "C'est le moment idéal pour la <strong>scarification</strong> et la nutrition de votre pelouse. Préparez vos massifs pour une floraison éclatante !";
+        } 
+        // ÉTÉ (Juin, Juillet, Août)
+        else if (mois >= 5 && mois <= 7) {
+            bloc.style.backgroundColor = "#2D6A4F"; // Vert plus clair
+            titre.innerText = "Conseils d'Été";
+            icone.innerHTML = '<i class="fas fa-sun"></i>';
+            texte.innerHTML = "Priorité à l'<strong>arrosage raisonné</strong> et à la tonte haute pour protéger vos sols. Profitez de votre jardin, nous gérons l'entretien !";
+        } 
+        // AUTOMNE (Septembre, Octobre, Novembre)
+        else if (mois >= 8 && mois <= 10) {
+            bloc.style.backgroundColor = "#522516"; // Marron Automne
+            titre.innerText = "Préparation d'Automne";
+            icone.innerHTML = '<i class="fas fa-leaf"></i>';
+            texte.innerHTML = "Le temps des <strong>plantations</strong> et du ramassage des feuilles. Protégez vos végétaux et préparez vos sols avant les premières gelées.";
+        } 
+        // HIVER (Décembre, Janvier, Février)
+        else {
+            bloc.style.backgroundColor = "#081C15"; // Vert très sombre
+            titre.innerText = "Travaux d'Hiver";
+            icone.innerHTML = '<i class="fas fa-snowflake"></i>';
+            texte.innerHTML = "Saison propice à la <strong>taille de structure</strong> et à l'élagage. Sécurisez vos arbres et planifiez vos projets de création pour le printemps.";
+        }
+    }
+    
+    // Lancement au chargement de la page
+    window.addEventListener('load', mettreAJourSaison);
+</script>
 </body>
 </html>
