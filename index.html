@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAJARDIN | Paysagiste Haute Couture Pévèle Carembault</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --dark: #1B4332; --lime: #B5D51E; --soft-bg: #F9FBF9; --white: #FFFFFF; --shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        body { background: var(--soft-bg); color: var(--dark); line-height: 1.7; overflow-x: hidden; }
+
+        /* HEADER UNIVERSEL - NE BOUGE JAMAIS */
+        header { background: var(--white); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--lime); position: sticky; top: 0; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .logo-container img { height: 65px !important; width: auto; display: block; transition: 0.3s; }
+        .logo-container:hover img { transform: scale(1.03); }
+        
+        nav { display: flex; gap: 30px; align-items: center; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; position: relative; transition: 0.3s; }
+        nav a:not(.btn-devis)::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--lime); transition: 0.3s; }
+        nav a:hover::after { width: 100%; }
+
+        .btn-devis { 
+            text-decoration: none; background: var(--dark); color: var(--lime) !important; 
+            width: 130px; height: 45px; display: flex; align-items: center; justify-content: center; 
+            border-radius: 4px; font-weight: 900; font-size: 0.85rem; text-transform: uppercase; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); flex-shrink: 0; border: none; cursor: pointer;
+        }
+        .btn-devis:hover { transform: scale(1.1); background: #255a43; box-shadow: 0 5px 15px rgba(27,67,50,0.3); }
+
+        /* HERO SECTION */
+        .hero { 
+            height: 75vh; 
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('photo-couverture.jpg') no-repeat top center/cover; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); text-transform: uppercase; letter-spacing: 5px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero b { color: var(--lime); }
+        .hero p { font-size: 1.3rem; letter-spacing: 1px; max-width: 800px; font-weight: 300; }
+
+        /* SECTIONS ANIMÉES */
+        section { padding: 100px 10%; max-width: 1400px; margin: auto; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 3px; position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; position: absolute; width: 80px; height: 5px; background: var(--lime); bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .service-card { background: white; padding: 50px 30px; border-radius: 15px; border-bottom: 6px solid var(--lime); box-shadow: var(--shadow); transition: 0.4s; text-align: center; }
+        .service-card:hover { transform: translateY(-15px); }
+        .service-card i { font-size: 3rem; color: var(--lime); margin-bottom: 25px; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; text-transform: uppercase; }
+
+        /* FOOTER COMPLET */
+        footer { background: var(--dark); color: white; padding: 80px 10% 40px; text-align: center; }
+        .footer-content img { height: 60px; filter: brightness(0) invert(1); margin-bottom: 30px; }
+        .socials { margin: 30px 0; }
+        .socials a { color: white; font-size: 2rem; margin: 0 20px; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .socials a:hover { color: var(--lime); transform: translateY(-5px) scale(1.2); }
+        .footer-info { margin-top: 20px; font-size: 1rem; opacity: 0.9; }
+        .legal-link { color: white; opacity: 0.4; font-size: 0.8rem; text-decoration: none; display: block; margin-top: 40px; transition: 0.3s; }
+        .legal-link:hover { opacity: 1; }
+
+        /* ANIMATIONS AU SCROLL */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-container"><img src="logo.png" alt="MAJARDIN"></a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="equipe.html">L'Équipe</a>
+            <a href="realisations.html">Réalisations</a>
+            <a href="avis.html">Témoignages</a>
+            <a href="contact.html" class="btn-devis">Devis</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Votre Jardin, <b>Notre Passion</b></h1>
+        <p>Conception, Aménagement & Entretien d'Espaces Verts d'Exception</p>
+    </div>
+
+    <section class="reveal">
+        <div class="section-title"><h2>Nos Expertises</h2></div>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-leaf"></i><h3>Création</h3><p>Conception de terrasses (bois/pierre), massifs architecturaux, engazonnement haute qualité et éclairage d'ambiance.</p></div>
+            <div class="service-card"><i class="fas fa-cut"></i><h3>Entretien</h3><p>Taille raisonnée, tonte de précision, scarification et remise en état complète pour un jardin impeccable toute l'année.</p></div>
+            <div class="service-card"><i class="fas fa-tree"></i><h3>Élagage</h3><p>Interventions délicates, abattage, dessouchage et soins arboricoles réalisés par des grimpeurs qualifiés.</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <img src="logo.png" alt="MAJARDIN">
+            <div class="socials">
+                <a href="https://www.instagram.com/majardinpaysagiste/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/MAJardinpaysagiste" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/33612267966" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-info">
+                <p><i class="fas fa-phone"></i> 06 12 26 79 66</p>
+                <p><i class="fas fa-envelope"></i> majardin59@gmail.com</p>
+                <p>📍 Pévèle Carembault & Hainaut</p>
+            </div>
+            <a href="mentions.html" class="legal-link">Mentions Légales & CGU</a>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(r => {
+                const windowHeight = window.innerHeight;
+                const revealTop = r.getBoundingClientRect().top;
+                if(revealTop < windowHeight - 100) r.classList.add('active');
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
